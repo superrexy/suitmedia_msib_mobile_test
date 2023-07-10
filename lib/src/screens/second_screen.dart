@@ -69,9 +69,11 @@ class _SecondScreenState extends State<SecondScreen> {
                           context,
                           ThirdScreen.routeName,
                         ).then(
-                          (value) => setState(
-                            () => selectedName = value.toString(),
-                          ),
+                          (value) => setState(() {
+                            if (value != null) {
+                              selectedName = value.toString();
+                            }
+                          }),
                         ),
                         child: Text(
                           "Choose a User",
